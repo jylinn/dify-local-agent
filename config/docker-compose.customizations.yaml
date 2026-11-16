@@ -1,0 +1,30 @@
+# Changes made on top of the official Dify docker/docker-compose.yaml (v1.14.1).
+# Only the customized keys are shown; merge them into the upstream file
+# or save this as docker-compose.override.yaml next to it.
+
+x-log-rotation: &log-rotation
+  logging:
+    driver: "json-file"
+    options:
+      max-size: "10m"   # keep container logs from filling the disk
+      max-file: "3"
+
+services:
+  api:
+    <<: *log-rotation
+  worker:
+    <<: *log-rotation
+  worker_beat:
+    <<: *log-rotation
+
+  sandbox:
+    # Community sandbox image with a fuller Python environment, so Code nodes
+    # in the workflow can import data-processing libraries.
+    image: svcvit/dify-sandbox-py:0.1.4
+    volumes:
+      - ./volumes/sandbox/dependencies:/dependencies
+      - ./volumes/sandbox/conf:/conf
+      # Host folder shared with the sandbox: the workflow writes daily
+      # reports here and reads past reviews back as "memory".
+      - D:\AI_data:/mnt/d/AI_data
+    <<: *log-rotation

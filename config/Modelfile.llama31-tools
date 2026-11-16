@@ -1,0 +1,26 @@
+FROM ./llama31.gguf
+
+TEMPLATE """{{- if .System }}{{ .System }}{{- end }}
+{{- range $i, $_ := .Messages }}
+{{- $last := eq (len (slice $.Messages $i)) 1 }}
+{{- if eq .Role "user" }}<|start_header_id|>user<|end_header_id|>
+
+{{ if $.Tools }}[{{- range $i, $_ := $.Tools }}{{- if $i }},{{- end }}{"type":"function","function":{"name":"{{ .Function.Name }}","description":"{{ .Function.Description }}","parameters":{{ .Function.Parameters }}}}{{- end }}]{{- end }}{{ .Content }}<|eot_id|>
+{{- else if eq .Role "assistant" }}<|start_header_id|>assistant<|end_header_id|>
+
+{{- if .ToolCalls }}
+{{- range .ToolCalls }}<|call|>{{ .Function.Name }}={{ .Function.Arguments }}<|eot_id|>{{- end }}
+{{- else }}{{ .Content }}{{- end }}
+{{- if not $last }}<|eot_id|>{{- end }}
+{{- else if eq .Role "tool" }}<|start_header_id|>tool<|end_header_id|>
+
+{{ .Content }}<|eot_id|>
+{{- end }}
+{{- if $last }}<|start_header_id|>assistant<|end_header_id|>
+
+{{- end }}
+{{- end }}"""
+
+PARAMETER stop "<|start_header_id|>"
+PARAMETER stop "<|end_header_id|>"
+PARAMETER stop "<|eot_id|>"
