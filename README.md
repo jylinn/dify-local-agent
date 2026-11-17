@@ -8,27 +8,38 @@
 
 ## 架構
 
+這個專案包含兩個 Dify 應用，設定都從 Dify 資料庫匯出放在 [`workflow/`](workflow/)：
+
+| 應用 | 類型 | 檔案 |
+|---|---|---|
+| **金融大腦自我進化系統** | Workflow（每天自動執行） | [`workflow/self-evolving-workflow.json`](workflow/self-evolving-workflow.json) |
+| **金融大腦** | Agent 聊天（Function calling + DuckDuckGo 搜尋，最多 10 輪工具呼叫） | [`workflow/agent-chat-config.json`](workflow/agent-chat-config.json) |
+
+### 每日工作流程（9 個節點）
+
 ```
-                       ┌──────────── Dify 1.14.1（Docker Compose）────────────┐
- 每天早上自動觸發 ───▶ │                                                       │
-                       │  ① 檢討節點：比較昨天的預測與實際走勢 → 寫檢討報告      │
-                       │        │                                              │
-                       │        ▼ 讀取歷史檢討（agent 的長期記憶）                │
-                       │  ② 搜尋節點：Tavily / DuckDuckGo 外掛抓當天新聞         │
-                       │        │                                              │
-                       │        ▼                                              │
-                       │  ③ LLM 節點：新聞 + 歷史教訓 → 量化走勢預測 + 風險提示   │
-                       │        │                                              │
-                       │        ▼                                              │
-                       │  ④ Code 節點（sandbox）：寫入檔案                       │
-                       └────────┼──────────────────────────────┼──────────────┘
-                                │ /mnt/d/AI_data（掛載）          │ Ollama 外掛
-                                ▼                               ▼
-                    D:\AI_data\forecast_日期.txt      Ollama ── Llama 3.1 8B（Q4）
-                    D:\AI_data\review_日期.txt         RTX 3050 8 GB
+ ① 排程觸發：每天 07:30（Asia/Taipei）
+      ▼
+ ② 程式碼執行：從 /mnt/d/AI_data 讀取「昨天寫給今天的預測」
+               和「過去 5 天的檢討筆記」（滑動視窗記憶）
+      ▼
+ ③ 檢討腦（LLM, llama3.1:8b）：比較昨天的預測與實際行情 → 寫 300 字自我修正檢討
+      ▼
+ ④ 存檢討報告（Code）：寫入 review_今天.txt  ──────────────┐ 成為之後 5 天的「記憶」
+      ▼                                                    │
+ ⑤ Tavily Search：搜尋聯準會利率、CPI、比特幣鏈上資金流向、衍生品槓桿 │
+      ▼                                                    │
+ ⑥ 找數據（Code）：呼叫 alternative.me 取得「恐懼與貪婪指數」       │
+      ▼                                                    │
+ ⑦ 預測腦（LLM, llama3.1:8b）：歷史檢討 ◀────────────────────┘
+               + 新聞 + 指數 → 明日走勢預測與風險提示
+      ▼
+ ⑧ 存預測報告（Code）：寫入 forecast_明天.txt（明天的 ② 會讀它）
+      ▼
+ ⑨ 輸出
 ```
 
-（工作流程的節點順序是依照輸出檔案的內容與時間整理出來的。）
+模型透過 Ollama 外掛呼叫本機 RTX 3050 上的 Llama 3.1 8B（Q4 量化）；Code 節點在 sandbox 容器裡執行，透過 volume 掛載讀寫 Windows 的 `D:\AI_data`。
 
 | 元件 | 用途 |
 |---|---|
@@ -52,6 +63,8 @@
 
 1. **新聞沒有落地（ungrounded）**：報告裡的「今日核心消息」常常是籠統、甚至自相矛盾的敘述。例如 10/13 的報告同一段同時寫「市場預期美元強勢」和「市場預期美元疲弱」，代表模型沒有真正依據搜尋結果，而是自己補完內容。
 2. **檢討報告捏造數字**：05/23 的檢討先寫「我預測股價會上漲 2%，但實際上下跌了 3%」，同一份報告後面又變成「導致股價下跌 5%」。比特幣的分析卻出現「股價」，數字前後也對不上。
+
+   **根本原因（從匯出的工作流程確認）**：② 傳給檢討腦的「昨天真實行情」只是一句佔位文字 `請參考下方今日最新聯網抓取到的即時價格進行對比`，而真正的搜尋 ⑤ 排在檢討 ③ **之後**。所以檢討腦**從來沒有拿到真實價格**，被要求「比較預測與實際」時，只能自己編出實際漲跌幅。這是一個資料流設計的 bug，而不只是模型能力不足。
 3. **錯誤被寫進記憶，再影響下一次**：檢討報告會被當作「歷史教訓」餵給隔天的分析。所以捏造的教訓會一直傳下去，形成**自我記憶投毒（self-inflicted memory poisoning）**。每份預測都說自己「結合歷史教訓」，但那些教訓本身就可能是錯的。
 
 這和學術界研究的 agent 記憶攻擊是同一個弱點，只是這裡的污染來源是模型自己，不是攻擊者：
@@ -60,7 +73,11 @@
 - Chen et al., *AgentPoison*, NeurIPS 2024；Dong et al., *MINJA*（memory injection attack）, arXiv:2503.03704
 - CSA MAESTRO 架構中的 **L2 Data Operations**（向量資料庫、記憶）
 
-**可以改進的方向**：每一句「事實」都要附上新聞來源連結；檢討時改用真實的價格 API 數字，不讓模型自己估；寫進記憶之前先做一致性檢查，或交給第二個模型驗證。
+**可以改進的方向**：
+- 在檢討之前先用 Code 節點呼叫價格 API（例如交易所的公開 K 線 API），把真實的開收盤價傳給檢討腦，不讓模型自己估。
+- 每一句「事實」都要附上新聞來源連結。
+- 寫進記憶之前先做一致性檢查（數字是否和 API 一致、前後是否矛盾），或交給第二個模型驗證；不合格的檢討不存進記憶。
+- 目前用「最近 5 天」的滑動視窗限制記憶長度，可以避免無限累積，但沒辦法過濾錯誤內容。
 
 ## 資安注意事項（自架 Dify 時發現的）
 
@@ -93,6 +110,9 @@ dify-local-agent/
 │   ├── Modelfile.llama31-tools              Llama 3.1 自訂 chat template（支援工具呼叫）
 │   ├── docker-compose.customizations.yaml   對官方 compose 的修改：sandbox、掛載、log 輪替
 │   └── sandbox-config.yaml                  Dify sandbox 設定
+├── workflow/
+│   ├── self-evolving-workflow.json          每日工作流程（9 個節點、prompt、Code 節點程式）
+│   └── agent-chat-config.json               Agent 聊天應用的 prompt 與工具設定
 ├── scripts/
 │   └── listen.ps1                           本機一次性 HTTP 接收端，把報告寫進 D 槽
 └── samples/

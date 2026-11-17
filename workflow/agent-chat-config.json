@@ -1,0 +1,85 @@
+{
+  "app": {
+    "name": "金融大腦",
+    "mode": "agent-chat"
+  },
+  "exported_from": "Dify 1.14.1 database (app_model_configs table)",
+  "model": {
+    "provider": "langgenius/ollama/ollama",
+    "name": "llama3.1:8b",
+    "mode": "chat",
+    "completion_params": {
+      "stop": []
+    }
+  },
+  "pre_prompt": "# Role\n你是一位精通全球金融市場（特別是加密貨幣市場、DeFi 生態）、大數據分析與金融科技（FinTech）的頂級 AI 資深分析官（Senior Analyst Agent）。你擁有極強的資料抓取、特徵提取與量化推理能力。\n\n# Style\n1. 語氣犀利、冷靜、客觀，說話一針見血，拒絕任何沒有數據支撐的「高大上」廢話與官腔。\n2. 思考極度注重「風險控制」與「數據回測（Backtesting）」思維。\n\n# Core Workflow & Principles\n1. 【工具與知識庫優先】：當使用者詢問任何涉及「當前即時行情」、「最新政策新聞」或「特定數據集分析」的任務時，你必須主動且優先調用身邊的「聯網搜尋工具」或「知識庫（Knowledge Base）」進行實時檢索，嚴禁憑空捏造數據。\n2. 【結構化邏輯分析】：面對複雜的市場問題，請一律採用「現狀概述 -> 數據/技術面分析 -> 風險評估 -> 未來展望」的思考路徑。\n3. 【嚴格繁體中文】：不論輸入語言為何，一律使用標準的「繁體中文（台灣習慣用語）」進行回覆（例如：請使用「數據」而非「數據」、「資安」而非「安防」）。\n\n# Response Format\n所有輸出的分析報告，必須嚴格遵守以下格式：\n- 【市場快訊】/【問題核心】：用不超過兩句話點出當前最核心的市場痛點。\n- 【關鍵數據分析】：使用 Markdown 表格或結構化列點（Bullet points），清晰列出量化數據、價格區間、或技術指標。\n- 【潛在風險提示】：強制獨立一小節，精確點出該策略或市場的隱憂（如流動性風險、滑點、政策風控等）。",
+  "agent_mode": {
+    "max_iteration": 10,
+    "enabled": true,
+    "strategy": "function_call",
+    "tools": [
+      {
+        "provider_id": "langgenius/duckduckgo/duckduckgo",
+        "provider_type": "builtin",
+        "provider_name": "langgenius/duckduckgo/duckduckgo",
+        "tool_name": "ddgo_search",
+        "tool_label": "DuckDuckGo Search",
+        "tool_parameters": {
+          "query": null,
+          "max_results": 5,
+          "require_summary": false,
+          "proxy_server": null
+        },
+        "notAuthor": false,
+        "enabled": true,
+        "type": "builtin",
+        "isDeleted": false
+      }
+    ],
+    "prompt": null
+  },
+  "opening_statement": "",
+  "suggested_questions": null,
+  "user_input_form": null,
+  "dataset_configs": {
+    "retrieval_model": "multiple",
+    "top_k": 4,
+    "datasets": {
+      "datasets": []
+    }
+  },
+  "more_like_this": null,
+  "file_upload": {
+    "image": {
+      "detail": "high",
+      "enabled": false,
+      "number_limits": 3,
+      "transfer_methods": [
+        "remote_url",
+        "local_file"
+      ]
+    },
+    "enabled": false,
+    "allowed_file_types": [],
+    "allowed_file_extensions": [
+      ".JPG",
+      ".JPEG",
+      ".PNG",
+      ".GIF",
+      ".WEBP",
+      ".SVG",
+      ".MP4",
+      ".MOV",
+      ".MPEG",
+      ".WEBM"
+    ],
+    "allowed_file_upload_methods": [
+      "remote_url",
+      "local_file"
+    ],
+    "number_limits": 3
+  },
+  "prompt_type": "simple",
+  "created_at": "2026-05-20T16:46:30",
+  "updated_at": "2026-05-20T16:46:30"
+}

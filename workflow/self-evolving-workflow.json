@@ -1,0 +1,3077 @@
+{
+  "app": {
+    "name": "金融大腦自我進化系統",
+    "mode": "workflow"
+  },
+  "exported_from": "Dify 1.14.1 database (workflows table, draft version)",
+  "graph": {
+    "nodes": [
+      {
+        "id": "1779365650959",
+        "type": "custom",
+        "data": {
+          "mode": "visual",
+          "frequency": "daily",
+          "visual_config": {
+            "time": "7:30 AM",
+            "weekdays": [
+              "sun"
+            ],
+            "on_minute": 0,
+            "monthly_days": [
+              1
+            ]
+          },
+          "type": "trigger-schedule",
+          "title": "排程觸發",
+          "selected": false,
+          "timezone": "Asia/Taipei"
+        },
+        "position": {
+          "x": 71.95911151502077,
+          "y": 225.7137806051453
+        },
+        "targetPosition": "left",
+        "sourcePosition": "right",
+        "positionAbsolute": {
+          "x": 71.95911151502077,
+          "y": 225.7137806051453
+        },
+        "width": 242,
+        "height": 130,
+        "selected": false
+      },
+      {
+        "id": "1779379015566",
+        "type": "custom",
+        "data": {
+          "tool_parameters": {
+            "query": {
+              "type": "mixed",
+              "value": "/Fed macro interest rate policy & CPI core inflation trends, Bitcoin whale wallet accumulation clusters & exchange net flow data, crypto derivatives market open interest & long-short liquidation leverage ratio today"
+            },
+            "search_depth": {
+              "type": "constant",
+              "value": "basic"
+            },
+            "topic": {
+              "type": "constant",
+              "value": "general"
+            },
+            "time_range": {
+              "type": "constant",
+              "value": "not_specified"
+            },
+            "start_date": {
+              "type": "mixed",
+              "value": null
+            },
+            "end_date": {
+              "type": "mixed",
+              "value": null
+            },
+            "country": {
+              "type": "constant",
+              "value": "united states"
+            },
+            "include_domains": {
+              "type": "mixed",
+              "value": null
+            },
+            "exclude_domains": {
+              "type": "mixed",
+              "value": null
+            }
+          },
+          "tool_configurations": {
+            "auto_parameters": {
+              "type": "constant",
+              "value": false
+            },
+            "include_images": {
+              "type": "constant",
+              "value": false
+            },
+            "include_image_descriptions": {
+              "type": "constant",
+              "value": false
+            },
+            "include_favicon": {
+              "type": "constant",
+              "value": false
+            },
+            "include_answer": {
+              "type": "constant",
+              "value": false
+            },
+            "include_raw_content": {
+              "type": "constant",
+              "value": false
+            },
+            "include_usage": {
+              "type": "constant",
+              "value": false
+            },
+            "max_results": {
+              "type": "constant",
+              "value": 5
+            },
+            "chunks_per_source": {
+              "type": "constant",
+              "value": 3
+            },
+            "project_id": {
+              "type": "mixed",
+              "value": null
+            }
+          },
+          "tool_node_version": "2",
+          "type": "tool",
+          "title": "Tavily Search",
+          "provider_id": "langgenius/tavily/tavily",
+          "provider_type": "builtin",
+          "provider_name": "langgenius/tavily/tavily",
+          "plugin_id": "langgenius/tavily",
+          "plugin_unique_identifier": "langgenius/tavily:0.1.7@5fce9cf01fecda9ad92e5125397d2bb5497429baed276c7f14f033e7debd0abe",
+          "provider_icon": "/console/api/workspaces/current/plugin/icon?tenant_id=<local-workspace>&filename=87e9610216108c07bc947745c1df5715aa276dbaa90e5d60866102c549fb5452.png",
+          "tool_name": "tavily_search",
+          "tool_label": "Tavily Search",
+          "tool_description": "A search engine tool built specifically for AI agents (LLMs), delivering real-time, accurate, and factual results at speed.",
+          "is_team_authorization": false,
+          "paramSchemas": [
+            {
+              "name": "query",
+              "label": {
+                "en_US": "Query",
+                "zh_Hans": "查询",
+                "pt_BR": "Query",
+                "ja_JP": "Query"
+              },
+              "placeholder": null,
+              "scope": null,
+              "auto_generate": null,
+              "template": null,
+              "required": true,
+              "default": null,
+              "min": null,
+              "max": null,
+              "precision": null,
+              "options": [],
+              "type": "string",
+              "human_description": {
+                "en_US": "The search query you want to execute with Tavily.",
+                "zh_Hans": "您想用 Tavily 执行的搜索查询。",
+                "pt_BR": "The search query you want to execute with Tavily.",
+                "ja_JP": "The search query you want to execute with Tavily."
+              },
+              "form": "llm",
+              "llm_description": "The search query."
+            },
+            {
+              "name": "search_depth",
+              "label": {
+                "en_US": "Search Depth",
+                "zh_Hans": "搜索深度",
+                "pt_BR": "Search Depth",
+                "ja_JP": "Search Depth"
+              },
+              "placeholder": null,
+              "scope": null,
+              "auto_generate": null,
+              "template": null,
+              "required": false,
+              "default": "basic",
+              "min": null,
+              "max": null,
+              "precision": null,
+              "options": [
+                {
+                  "value": "basic",
+                  "label": {
+                    "en_US": "Basic",
+                    "zh_Hans": "基本",
+                    "pt_BR": "Basic",
+                    "ja_JP": "Basic"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "advanced",
+                  "label": {
+                    "en_US": "Advanced",
+                    "zh_Hans": "高级",
+                    "pt_BR": "Advanced",
+                    "ja_JP": "Advanced"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "fast",
+                  "label": {
+                    "en_US": "Fast",
+                    "zh_Hans": "快速",
+                    "pt_BR": "Fast",
+                    "ja_JP": "Fast"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "ultra-fast",
+                  "label": {
+                    "en_US": "Ultra Fast",
+                    "zh_Hans": "超快速",
+                    "pt_BR": "Ultra Fast",
+                    "ja_JP": "Ultra Fast"
+                  },
+                  "icon": ""
+                }
+              ],
+              "type": "select",
+              "human_description": {
+                "en_US": "The depth of the search.",
+                "zh_Hans": "搜索的深度。",
+                "pt_BR": "The depth of the search.",
+                "ja_JP": "The depth of the search."
+              },
+              "form": "llm",
+              "llm_description": "The depth of the search. 'basic' for standard search, 'advanced' for comprehensive results, 'fast' for quick results, 'ultra-fast' for fastest results with minimal processing."
+            },
+            {
+              "name": "topic",
+              "label": {
+                "en_US": "Topic",
+                "zh_Hans": "主题",
+                "pt_BR": "Topic",
+                "ja_JP": "Topic"
+              },
+              "placeholder": null,
+              "scope": null,
+              "auto_generate": null,
+              "template": null,
+              "required": false,
+              "default": "general",
+              "min": null,
+              "max": null,
+              "precision": null,
+              "options": [
+                {
+                  "value": "general",
+                  "label": {
+                    "en_US": "General",
+                    "zh_Hans": "一般",
+                    "pt_BR": "General",
+                    "ja_JP": "General"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "news",
+                  "label": {
+                    "en_US": "News",
+                    "zh_Hans": "新闻",
+                    "pt_BR": "News",
+                    "ja_JP": "News"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "finance",
+                  "label": {
+                    "en_US": "Finance",
+                    "zh_Hans": "金融",
+                    "pt_BR": "Finance",
+                    "ja_JP": "Finance"
+                  },
+                  "icon": ""
+                }
+              ],
+              "type": "select",
+              "human_description": {
+                "en_US": "The category of the search.",
+                "zh_Hans": "搜索的类别。",
+                "pt_BR": "The category of the search.",
+                "ja_JP": "The category of the search."
+              },
+              "form": "llm",
+              "llm_description": "The category of the search. Options include 'general', 'news', or 'finance'."
+            },
+            {
+              "name": "time_range",
+              "label": {
+                "en_US": "Time Range",
+                "zh_Hans": "时间范围",
+                "pt_BR": "Time Range",
+                "ja_JP": "Time Range"
+              },
+              "placeholder": null,
+              "scope": null,
+              "auto_generate": null,
+              "template": null,
+              "required": false,
+              "default": "not_specified",
+              "min": null,
+              "max": null,
+              "precision": null,
+              "options": [
+                {
+                  "value": "not_specified",
+                  "label": {
+                    "en_US": "Not Specified",
+                    "zh_Hans": "不指定",
+                    "pt_BR": "Not Specified",
+                    "ja_JP": "Not Specified"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "day",
+                  "label": {
+                    "en_US": "Day",
+                    "zh_Hans": "天",
+                    "pt_BR": "Day",
+                    "ja_JP": "Day"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "week",
+                  "label": {
+                    "en_US": "Week",
+                    "zh_Hans": "周",
+                    "pt_BR": "Week",
+                    "ja_JP": "Week"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "month",
+                  "label": {
+                    "en_US": "Month",
+                    "zh_Hans": "月",
+                    "pt_BR": "Month",
+                    "ja_JP": "Month"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "year",
+                  "label": {
+                    "en_US": "Year",
+                    "zh_Hans": "年",
+                    "pt_BR": "Year",
+                    "ja_JP": "Year"
+                  },
+                  "icon": ""
+                }
+              ],
+              "type": "select",
+              "human_description": {
+                "en_US": "The time range back from the current date to filter results.",
+                "zh_Hans": "从当前日期起向后筛选结果的时间范围。",
+                "pt_BR": "The time range back from the current date to filter results.",
+                "ja_JP": "The time range back from the current date to filter results."
+              },
+              "form": "llm",
+              "llm_description": "The time range back from the current date to filter results. Options include 'not_specified', 'day', 'week', 'month', or 'year'."
+            },
+            {
+              "name": "start_date",
+              "label": {
+                "en_US": "Start Date",
+                "zh_Hans": "开始日期",
+                "pt_BR": "Start Date",
+                "ja_JP": "Start Date"
+              },
+              "placeholder": null,
+              "scope": null,
+              "auto_generate": null,
+              "template": null,
+              "required": false,
+              "default": null,
+              "min": null,
+              "max": null,
+              "precision": null,
+              "options": [],
+              "type": "string",
+              "human_description": {
+                "en_US": "The start date for filtering results. Required to be written in the format YYYY-MM-DD.",
+                "zh_Hans": "筛选结果的开始日期。必须以YYYY-MM-DD格式编写。",
+                "pt_BR": "The start date for filtering results. Required to be written in the format YYYY-MM-DD.",
+                "ja_JP": "The start date for filtering results. Required to be written in the format YYYY-MM-DD."
+              },
+              "form": "llm",
+              "llm_description": "The start date for filtering results. Required to be written in the format YYYY-MM-DD. Results will be filtered to include content from this date onwards."
+            },
+            {
+              "name": "end_date",
+              "label": {
+                "en_US": "End Date",
+                "zh_Hans": "结束日期",
+                "pt_BR": "End Date",
+                "ja_JP": "End Date"
+              },
+              "placeholder": null,
+              "scope": null,
+              "auto_generate": null,
+              "template": null,
+              "required": false,
+              "default": null,
+              "min": null,
+              "max": null,
+              "precision": null,
+              "options": [],
+              "type": "string",
+              "human_description": {
+                "en_US": "The end date for filtering results. Required to be written in the format YYYY-MM-DD.",
+                "zh_Hans": "筛选结果的结束日期。必须以YYYY-MM-DD格式编写。",
+                "pt_BR": "The end date for filtering results. Required to be written in the format YYYY-MM-DD.",
+                "ja_JP": "The end date for filtering results. Required to be written in the format YYYY-MM-DD."
+              },
+              "form": "llm",
+              "llm_description": "The end date for filtering results. Required to be written in the format YYYY-MM-DD. Results will be filtered to include content up to this date."
+            },
+            {
+              "name": "auto_parameters",
+              "label": {
+                "en_US": "Auto Parameters",
+                "zh_Hans": "自动参数",
+                "pt_BR": "Auto Parameters",
+                "ja_JP": "Auto Parameters"
+              },
+              "placeholder": null,
+              "scope": null,
+              "auto_generate": null,
+              "template": null,
+              "required": false,
+              "default": false,
+              "min": null,
+              "max": null,
+              "precision": null,
+              "options": [],
+              "type": "boolean",
+              "human_description": {
+                "en_US": "Automatically configure search parameters based on query content and intent.",
+                "zh_Hans": "根据查询内容和意图自动配置搜索参数。",
+                "pt_BR": "Automatically configure search parameters based on query content and intent.",
+                "ja_JP": "Automatically configure search parameters based on query content and intent."
+              },
+              "form": "form",
+              "llm_description": "When set to true, Tavily automatically configures search parameters based on your query."
+            },
+            {
+              "name": "include_images",
+              "label": {
+                "en_US": "Include Images",
+                "zh_Hans": "包含图片",
+                "pt_BR": "Include Images",
+                "ja_JP": "Include Images"
+              },
+              "placeholder": null,
+              "scope": null,
+              "auto_generate": null,
+              "template": null,
+              "required": false,
+              "default": false,
+              "min": null,
+              "max": null,
+              "precision": null,
+              "options": [],
+              "type": "boolean",
+              "human_description": {
+                "en_US": "Include a list of query-related images in the response.",
+                "zh_Hans": "在响应中包含与查询相关的图片列表。",
+                "pt_BR": "Include a list of query-related images in the response.",
+                "ja_JP": "Include a list of query-related images in the response."
+              },
+              "form": "form",
+              "llm_description": "When set to true, includes a list of query-related images in the response."
+            },
+            {
+              "name": "include_image_descriptions",
+              "label": {
+                "en_US": "Include Image Descriptions",
+                "zh_Hans": "包含图片描述",
+                "pt_BR": "Include Image Descriptions",
+                "ja_JP": "Include Image Descriptions"
+              },
+              "placeholder": null,
+              "scope": null,
+              "auto_generate": null,
+              "template": null,
+              "required": false,
+              "default": false,
+              "min": null,
+              "max": null,
+              "precision": null,
+              "options": [],
+              "type": "boolean",
+              "human_description": {
+                "en_US": "When include_images is True, adds descriptive text for each image.",
+                "zh_Hans": "当 include_images 为 True 时，为每个图像添加描述文本。",
+                "pt_BR": "When include_images is True, adds descriptive text for each image.",
+                "ja_JP": "When include_images is True, adds descriptive text for each image."
+              },
+              "form": "form",
+              "llm_description": "When include_images is True and this is set to true, adds descriptive text for each image."
+            },
+            {
+              "name": "include_favicon",
+              "label": {
+                "en_US": "Include Favicon",
+                "zh_Hans": "包含Favicon",
+                "pt_BR": "Include Favicon",
+                "ja_JP": "Include Favicon"
+              },
+              "placeholder": null,
+              "scope": null,
+              "auto_generate": null,
+              "template": null,
+              "required": false,
+              "default": false,
+              "min": null,
+              "max": null,
+              "precision": null,
+              "options": [],
+              "type": "boolean",
+              "human_description": {
+                "en_US": "Include favicon URL for each result.",
+                "zh_Hans": "包含每个结果的favicon URL。",
+                "pt_BR": "Include favicon URL for each result.",
+                "ja_JP": "Include favicon URL for each result."
+              },
+              "form": "form",
+              "llm_description": "When set to true, includes the favicon URL for each result."
+            },
+            {
+              "name": "include_answer",
+              "label": {
+                "en_US": "Include Answer",
+                "zh_Hans": "包含答案",
+                "pt_BR": "Include Answer",
+                "ja_JP": "Include Answer"
+              },
+              "placeholder": null,
+              "scope": null,
+              "auto_generate": null,
+              "template": null,
+              "required": false,
+              "default": false,
+              "min": null,
+              "max": null,
+              "precision": null,
+              "options": [
+                {
+                  "value": "false",
+                  "label": {
+                    "en_US": "False",
+                    "zh_Hans": "否",
+                    "pt_BR": "False",
+                    "ja_JP": "False"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "true",
+                  "label": {
+                    "en_US": "True",
+                    "zh_Hans": "是",
+                    "pt_BR": "True",
+                    "ja_JP": "True"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "basic",
+                  "label": {
+                    "en_US": "Basic",
+                    "zh_Hans": "基本",
+                    "pt_BR": "Basic",
+                    "ja_JP": "Basic"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "advanced",
+                  "label": {
+                    "en_US": "Advanced",
+                    "zh_Hans": "高级",
+                    "pt_BR": "Advanced",
+                    "ja_JP": "Advanced"
+                  },
+                  "icon": ""
+                }
+              ],
+              "type": "select",
+              "human_description": {
+                "en_US": "Include a short answer to the original query in the response. Use 'basic' or 'true' for a quick answer or 'advanced' for a more detailed, comprehensive answer.",
+                "zh_Hans": "在回复中包含对原始问题的简短回答。对于简要回答，请使用“基本”或“是”；对于更详细、更全面的回答，请使用“高级”。",
+                "pt_BR": "Include a short answer to the original query in the response. Use 'basic' or 'true' for a quick answer or 'advanced' for a more detailed, comprehensive answer.",
+                "ja_JP": "Include a short answer to the original query in the response. Use 'basic' or 'true' for a quick answer or 'advanced' for a more detailed, comprehensive answer."
+              },
+              "form": "form",
+              "llm_description": "When set to true or 'basic', includes a short answer to the original query in the response, 'advanced' for a more detailed comprehensive answer."
+            },
+            {
+              "name": "include_raw_content",
+              "label": {
+                "en_US": "Include Raw Content",
+                "zh_Hans": "包含原始内容",
+                "pt_BR": "Include Raw Content",
+                "ja_JP": "Include Raw Content"
+              },
+              "placeholder": null,
+              "scope": null,
+              "auto_generate": null,
+              "template": null,
+              "required": false,
+              "default": false,
+              "min": null,
+              "max": null,
+              "precision": null,
+              "options": [
+                {
+                  "value": "false",
+                  "label": {
+                    "en_US": "False",
+                    "zh_Hans": "否",
+                    "pt_BR": "False",
+                    "ja_JP": "False"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "true",
+                  "label": {
+                    "en_US": "True",
+                    "zh_Hans": "是",
+                    "pt_BR": "True",
+                    "ja_JP": "True"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "markdown",
+                  "label": {
+                    "en_US": "Markdown",
+                    "zh_Hans": "Markdown",
+                    "pt_BR": "Markdown",
+                    "ja_JP": "Markdown"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "text",
+                  "label": {
+                    "en_US": "Text",
+                    "zh_Hans": "纯文本",
+                    "pt_BR": "Text",
+                    "ja_JP": "Text"
+                  },
+                  "icon": ""
+                }
+              ],
+              "type": "select",
+              "human_description": {
+                "en_US": "Include the cleaned and parsed HTML content of each search result. Use 'markdown' for markdown format or 'text' for plain text.",
+                "zh_Hans": "包含每个搜索结果的已清理和解析的HTML内容。使用 Markdown 格式请选择 Markdown 选项，使用纯文本请选择文本选项。",
+                "pt_BR": "Include the cleaned and parsed HTML content of each search result. Use 'markdown' for markdown format or 'text' for plain text.",
+                "ja_JP": "Include the cleaned and parsed HTML content of each search result. Use 'markdown' for markdown format or 'text' for plain text."
+              },
+              "form": "form",
+              "llm_description": "Include the cleaned and parsed content of each search result. 'false' to disable, 'true' or 'markdown' for markdown format, 'text' for plain text format."
+            },
+            {
+              "name": "include_usage",
+              "label": {
+                "en_US": "Include Usage",
+                "zh_Hans": "包含使用信息",
+                "pt_BR": "Include Usage",
+                "ja_JP": "Include Usage"
+              },
+              "placeholder": null,
+              "scope": null,
+              "auto_generate": null,
+              "template": null,
+              "required": false,
+              "default": false,
+              "min": null,
+              "max": null,
+              "precision": null,
+              "options": [],
+              "type": "boolean",
+              "human_description": {
+                "en_US": "Include API usage information (token counts, credits used) in the response.",
+                "zh_Hans": "在响应中包含API使用信息（token计数、使用的积分）。",
+                "pt_BR": "Include API usage information (token counts, credits used) in the response.",
+                "ja_JP": "Include API usage information (token counts, credits used) in the response."
+              },
+              "form": "form",
+              "llm_description": "When set to true, includes API usage information such as token counts and credits used in the response."
+            },
+            {
+              "name": "max_results",
+              "label": {
+                "en_US": "Max Results",
+                "zh_Hans": "最大结果数",
+                "pt_BR": "Max Results",
+                "ja_JP": "Max Results"
+              },
+              "placeholder": null,
+              "scope": null,
+              "auto_generate": null,
+              "template": null,
+              "required": false,
+              "default": 5,
+              "min": 1,
+              "max": 20,
+              "precision": null,
+              "options": [],
+              "type": "number",
+              "human_description": {
+                "en_US": "The maximum number of search results to return.",
+                "zh_Hans": "要返回的最大搜索结果数。",
+                "pt_BR": "The maximum number of search results to return.",
+                "ja_JP": "The maximum number of search results to return."
+              },
+              "form": "form",
+              "llm_description": "The maximum number of search results to return. Range is 1-20."
+            },
+            {
+              "name": "chunks_per_source",
+              "label": {
+                "en_US": "Chunks Per Source",
+                "zh_Hans": "每来源片段数",
+                "pt_BR": "Chunks Per Source",
+                "ja_JP": "Chunks Per Source"
+              },
+              "placeholder": null,
+              "scope": null,
+              "auto_generate": null,
+              "template": null,
+              "required": false,
+              "default": 3,
+              "min": 1,
+              "max": 3,
+              "precision": null,
+              "options": [],
+              "type": "number",
+              "human_description": {
+                "en_US": "Maximum number of content chunks returned per source (advanced search only).",
+                "zh_Hans": "每个来源返回的内容片段的最大数量（仅限高级搜索）。",
+                "pt_BR": "Maximum number of content chunks returned per source (advanced search only).",
+                "ja_JP": "Maximum number of content chunks returned per source (advanced search only)."
+              },
+              "form": "form",
+              "llm_description": "Maximum number of relevant content chunks (1-3) returned per source. Valid only when search_depth is advanced."
+            },
+            {
+              "name": "country",
+              "label": {
+                "en_US": "Country",
+                "zh_Hans": "国家",
+                "pt_BR": "Country",
+                "ja_JP": "Country"
+              },
+              "placeholder": null,
+              "scope": null,
+              "auto_generate": null,
+              "template": null,
+              "required": false,
+              "default": "united states",
+              "min": null,
+              "max": null,
+              "precision": null,
+              "options": [
+                {
+                  "value": "afghanistan",
+                  "label": {
+                    "en_US": "Afghanistan",
+                    "zh_Hans": "阿富汗",
+                    "pt_BR": "Afghanistan",
+                    "ja_JP": "Afghanistan"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "albania",
+                  "label": {
+                    "en_US": "Albania",
+                    "zh_Hans": "阿尔巴尼亚",
+                    "pt_BR": "Albania",
+                    "ja_JP": "Albania"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "algeria",
+                  "label": {
+                    "en_US": "Algeria",
+                    "zh_Hans": "阿尔及利亚",
+                    "pt_BR": "Algeria",
+                    "ja_JP": "Algeria"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "andorra",
+                  "label": {
+                    "en_US": "Andorra",
+                    "zh_Hans": "安道尔",
+                    "pt_BR": "Andorra",
+                    "ja_JP": "Andorra"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "angola",
+                  "label": {
+                    "en_US": "Angola",
+                    "zh_Hans": "安哥拉",
+                    "pt_BR": "Angola",
+                    "ja_JP": "Angola"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "argentina",
+                  "label": {
+                    "en_US": "Argentina",
+                    "zh_Hans": "阿根廷",
+                    "pt_BR": "Argentina",
+                    "ja_JP": "Argentina"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "armenia",
+                  "label": {
+                    "en_US": "Armenia",
+                    "zh_Hans": "亚美尼亚",
+                    "pt_BR": "Armenia",
+                    "ja_JP": "Armenia"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "australia",
+                  "label": {
+                    "en_US": "Australia",
+                    "zh_Hans": "澳大利亚",
+                    "pt_BR": "Australia",
+                    "ja_JP": "Australia"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "austria",
+                  "label": {
+                    "en_US": "Austria",
+                    "zh_Hans": "奥地利",
+                    "pt_BR": "Austria",
+                    "ja_JP": "Austria"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "azerbaijan",
+                  "label": {
+                    "en_US": "Azerbaijan",
+                    "zh_Hans": "阿塞拜疆",
+                    "pt_BR": "Azerbaijan",
+                    "ja_JP": "Azerbaijan"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "bahamas",
+                  "label": {
+                    "en_US": "Bahamas",
+                    "zh_Hans": "巴哈马",
+                    "pt_BR": "Bahamas",
+                    "ja_JP": "Bahamas"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "bahrain",
+                  "label": {
+                    "en_US": "Bahrain",
+                    "zh_Hans": "巴林",
+                    "pt_BR": "Bahrain",
+                    "ja_JP": "Bahrain"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "bangladesh",
+                  "label": {
+                    "en_US": "Bangladesh",
+                    "zh_Hans": "孟加拉国",
+                    "pt_BR": "Bangladesh",
+                    "ja_JP": "Bangladesh"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "barbados",
+                  "label": {
+                    "en_US": "Barbados",
+                    "zh_Hans": "巴巴多斯",
+                    "pt_BR": "Barbados",
+                    "ja_JP": "Barbados"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "belarus",
+                  "label": {
+                    "en_US": "Belarus",
+                    "zh_Hans": "白俄罗斯",
+                    "pt_BR": "Belarus",
+                    "ja_JP": "Belarus"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "belgium",
+                  "label": {
+                    "en_US": "Belgium",
+                    "zh_Hans": "比利时",
+                    "pt_BR": "Belgium",
+                    "ja_JP": "Belgium"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "belize",
+                  "label": {
+                    "en_US": "Belize",
+                    "zh_Hans": "伯利兹",
+                    "pt_BR": "Belize",
+                    "ja_JP": "Belize"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "benin",
+                  "label": {
+                    "en_US": "Benin",
+                    "zh_Hans": "贝宁",
+                    "pt_BR": "Benin",
+                    "ja_JP": "Benin"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "bhutan",
+                  "label": {
+                    "en_US": "Bhutan",
+                    "zh_Hans": "不丹",
+                    "pt_BR": "Bhutan",
+                    "ja_JP": "Bhutan"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "bolivia",
+                  "label": {
+                    "en_US": "Bolivia",
+                    "zh_Hans": "玻利维亚",
+                    "pt_BR": "Bolivia",
+                    "ja_JP": "Bolivia"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "bosnia and herzegovina",
+                  "label": {
+                    "en_US": "Bosnia and Herzegovina",
+                    "zh_Hans": "波斯尼亚和黑塞哥维那",
+                    "pt_BR": "Bosnia and Herzegovina",
+                    "ja_JP": "Bosnia and Herzegovina"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "botswana",
+                  "label": {
+                    "en_US": "Botswana",
+                    "zh_Hans": "博茨瓦纳",
+                    "pt_BR": "Botswana",
+                    "ja_JP": "Botswana"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "brazil",
+                  "label": {
+                    "en_US": "Brazil",
+                    "zh_Hans": "巴西",
+                    "pt_BR": "Brazil",
+                    "ja_JP": "Brazil"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "brunei",
+                  "label": {
+                    "en_US": "Brunei",
+                    "zh_Hans": "文莱",
+                    "pt_BR": "Brunei",
+                    "ja_JP": "Brunei"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "bulgaria",
+                  "label": {
+                    "en_US": "Bulgaria",
+                    "zh_Hans": "保加利亚",
+                    "pt_BR": "Bulgaria",
+                    "ja_JP": "Bulgaria"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "burkina faso",
+                  "label": {
+                    "en_US": "Burkina Faso",
+                    "zh_Hans": "布基纳法索",
+                    "pt_BR": "Burkina Faso",
+                    "ja_JP": "Burkina Faso"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "burundi",
+                  "label": {
+                    "en_US": "Burundi",
+                    "zh_Hans": "布隆迪",
+                    "pt_BR": "Burundi",
+                    "ja_JP": "Burundi"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "cambodia",
+                  "label": {
+                    "en_US": "Cambodia",
+                    "zh_Hans": "柬埔寨",
+                    "pt_BR": "Cambodia",
+                    "ja_JP": "Cambodia"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "cameroon",
+                  "label": {
+                    "en_US": "Cameroon",
+                    "zh_Hans": "喀麦隆",
+                    "pt_BR": "Cameroon",
+                    "ja_JP": "Cameroon"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "canada",
+                  "label": {
+                    "en_US": "Canada",
+                    "zh_Hans": "加拿大",
+                    "pt_BR": "Canada",
+                    "ja_JP": "Canada"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "cape verde",
+                  "label": {
+                    "en_US": "Cape Verde",
+                    "zh_Hans": "佛得角",
+                    "pt_BR": "Cape Verde",
+                    "ja_JP": "Cape Verde"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "central african republic",
+                  "label": {
+                    "en_US": "Central African Republic",
+                    "zh_Hans": "中非共和国",
+                    "pt_BR": "Central African Republic",
+                    "ja_JP": "Central African Republic"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "chad",
+                  "label": {
+                    "en_US": "Chad",
+                    "zh_Hans": "乍得",
+                    "pt_BR": "Chad",
+                    "ja_JP": "Chad"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "chile",
+                  "label": {
+                    "en_US": "Chile",
+                    "zh_Hans": "智利",
+                    "pt_BR": "Chile",
+                    "ja_JP": "Chile"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "china",
+                  "label": {
+                    "en_US": "China",
+                    "zh_Hans": "中国",
+                    "pt_BR": "China",
+                    "ja_JP": "China"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "colombia",
+                  "label": {
+                    "en_US": "Colombia",
+                    "zh_Hans": "哥伦比亚",
+                    "pt_BR": "Colombia",
+                    "ja_JP": "Colombia"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "comoros",
+                  "label": {
+                    "en_US": "Comoros",
+                    "zh_Hans": "科摩罗",
+                    "pt_BR": "Comoros",
+                    "ja_JP": "Comoros"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "congo",
+                  "label": {
+                    "en_US": "Congo",
+                    "zh_Hans": "刚果",
+                    "pt_BR": "Congo",
+                    "ja_JP": "Congo"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "costa rica",
+                  "label": {
+                    "en_US": "Costa Rica",
+                    "zh_Hans": "哥斯达黎加",
+                    "pt_BR": "Costa Rica",
+                    "ja_JP": "Costa Rica"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "croatia",
+                  "label": {
+                    "en_US": "Croatia",
+                    "zh_Hans": "克罗地亚",
+                    "pt_BR": "Croatia",
+                    "ja_JP": "Croatia"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "cuba",
+                  "label": {
+                    "en_US": "Cuba",
+                    "zh_Hans": "古巴",
+                    "pt_BR": "Cuba",
+                    "ja_JP": "Cuba"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "cyprus",
+                  "label": {
+                    "en_US": "Cyprus",
+                    "zh_Hans": "塞浦路斯",
+                    "pt_BR": "Cyprus",
+                    "ja_JP": "Cyprus"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "czech republic",
+                  "label": {
+                    "en_US": "Czech Republic",
+                    "zh_Hans": "捷克共和国",
+                    "pt_BR": "Czech Republic",
+                    "ja_JP": "Czech Republic"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "denmark",
+                  "label": {
+                    "en_US": "Denmark",
+                    "zh_Hans": "丹麦",
+                    "pt_BR": "Denmark",
+                    "ja_JP": "Denmark"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "djibouti",
+                  "label": {
+                    "en_US": "Djibouti",
+                    "zh_Hans": "吉布提",
+                    "pt_BR": "Djibouti",
+                    "ja_JP": "Djibouti"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "dominican republic",
+                  "label": {
+                    "en_US": "Dominican Republic",
+                    "zh_Hans": "多米尼加共和国",
+                    "pt_BR": "Dominican Republic",
+                    "ja_JP": "Dominican Republic"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "ecuador",
+                  "label": {
+                    "en_US": "Ecuador",
+                    "zh_Hans": "厄瓜多尔",
+                    "pt_BR": "Ecuador",
+                    "ja_JP": "Ecuador"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "egypt",
+                  "label": {
+                    "en_US": "Egypt",
+                    "zh_Hans": "埃及",
+                    "pt_BR": "Egypt",
+                    "ja_JP": "Egypt"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "el salvador",
+                  "label": {
+                    "en_US": "El Salvador",
+                    "zh_Hans": "萨尔瓦多",
+                    "pt_BR": "El Salvador",
+                    "ja_JP": "El Salvador"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "equatorial guinea",
+                  "label": {
+                    "en_US": "Equatorial Guinea",
+                    "zh_Hans": "赤道几内亚",
+                    "pt_BR": "Equatorial Guinea",
+                    "ja_JP": "Equatorial Guinea"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "eritrea",
+                  "label": {
+                    "en_US": "Eritrea",
+                    "zh_Hans": "厄立特里亚",
+                    "pt_BR": "Eritrea",
+                    "ja_JP": "Eritrea"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "estonia",
+                  "label": {
+                    "en_US": "Estonia",
+                    "zh_Hans": "爱沙尼亚",
+                    "pt_BR": "Estonia",
+                    "ja_JP": "Estonia"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "ethiopia",
+                  "label": {
+                    "en_US": "Ethiopia",
+                    "zh_Hans": "埃塞俄比亚",
+                    "pt_BR": "Ethiopia",
+                    "ja_JP": "Ethiopia"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "fiji",
+                  "label": {
+                    "en_US": "Fiji",
+                    "zh_Hans": "斐济",
+                    "pt_BR": "Fiji",
+                    "ja_JP": "Fiji"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "finland",
+                  "label": {
+                    "en_US": "Finland",
+                    "zh_Hans": "芬兰",
+                    "pt_BR": "Finland",
+                    "ja_JP": "Finland"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "france",
+                  "label": {
+                    "en_US": "France",
+                    "zh_Hans": "法国",
+                    "pt_BR": "France",
+                    "ja_JP": "France"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "gabon",
+                  "label": {
+                    "en_US": "Gabon",
+                    "zh_Hans": "加蓬",
+                    "pt_BR": "Gabon",
+                    "ja_JP": "Gabon"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "gambia",
+                  "label": {
+                    "en_US": "Gambia",
+                    "zh_Hans": "冈比亚",
+                    "pt_BR": "Gambia",
+                    "ja_JP": "Gambia"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "georgia",
+                  "label": {
+                    "en_US": "Georgia",
+                    "zh_Hans": "格鲁吉亚",
+                    "pt_BR": "Georgia",
+                    "ja_JP": "Georgia"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "germany",
+                  "label": {
+                    "en_US": "Germany",
+                    "zh_Hans": "德国",
+                    "pt_BR": "Germany",
+                    "ja_JP": "Germany"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "ghana",
+                  "label": {
+                    "en_US": "Ghana",
+                    "zh_Hans": "加纳",
+                    "pt_BR": "Ghana",
+                    "ja_JP": "Ghana"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "greece",
+                  "label": {
+                    "en_US": "Greece",
+                    "zh_Hans": "希腊",
+                    "pt_BR": "Greece",
+                    "ja_JP": "Greece"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "guatemala",
+                  "label": {
+                    "en_US": "Guatemala",
+                    "zh_Hans": "危地马拉",
+                    "pt_BR": "Guatemala",
+                    "ja_JP": "Guatemala"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "guinea",
+                  "label": {
+                    "en_US": "Guinea",
+                    "zh_Hans": "几内亚",
+                    "pt_BR": "Guinea",
+                    "ja_JP": "Guinea"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "haiti",
+                  "label": {
+                    "en_US": "Haiti",
+                    "zh_Hans": "海地",
+                    "pt_BR": "Haiti",
+                    "ja_JP": "Haiti"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "honduras",
+                  "label": {
+                    "en_US": "Honduras",
+                    "zh_Hans": "洪都拉斯",
+                    "pt_BR": "Honduras",
+                    "ja_JP": "Honduras"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "hungary",
+                  "label": {
+                    "en_US": "Hungary",
+                    "zh_Hans": "匈牙利",
+                    "pt_BR": "Hungary",
+                    "ja_JP": "Hungary"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "iceland",
+                  "label": {
+                    "en_US": "Iceland",
+                    "zh_Hans": "冰岛",
+                    "pt_BR": "Iceland",
+                    "ja_JP": "Iceland"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "india",
+                  "label": {
+                    "en_US": "India",
+                    "zh_Hans": "印度",
+                    "pt_BR": "India",
+                    "ja_JP": "India"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "indonesia",
+                  "label": {
+                    "en_US": "Indonesia",
+                    "zh_Hans": "印度尼西亚",
+                    "pt_BR": "Indonesia",
+                    "ja_JP": "Indonesia"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "iran",
+                  "label": {
+                    "en_US": "Iran",
+                    "zh_Hans": "伊朗",
+                    "pt_BR": "Iran",
+                    "ja_JP": "Iran"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "iraq",
+                  "label": {
+                    "en_US": "Iraq",
+                    "zh_Hans": "伊拉克",
+                    "pt_BR": "Iraq",
+                    "ja_JP": "Iraq"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "ireland",
+                  "label": {
+                    "en_US": "Ireland",
+                    "zh_Hans": "爱尔兰",
+                    "pt_BR": "Ireland",
+                    "ja_JP": "Ireland"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "israel",
+                  "label": {
+                    "en_US": "Israel",
+                    "zh_Hans": "以色列",
+                    "pt_BR": "Israel",
+                    "ja_JP": "Israel"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "italy",
+                  "label": {
+                    "en_US": "Italy",
+                    "zh_Hans": "意大利",
+                    "pt_BR": "Italy",
+                    "ja_JP": "Italy"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "jamaica",
+                  "label": {
+                    "en_US": "Jamaica",
+                    "zh_Hans": "牙买加",
+                    "pt_BR": "Jamaica",
+                    "ja_JP": "Jamaica"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "japan",
+                  "label": {
+                    "en_US": "Japan",
+                    "zh_Hans": "日本",
+                    "pt_BR": "Japan",
+                    "ja_JP": "Japan"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "jordan",
+                  "label": {
+                    "en_US": "Jordan",
+                    "zh_Hans": "约旦",
+                    "pt_BR": "Jordan",
+                    "ja_JP": "Jordan"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "kazakhstan",
+                  "label": {
+                    "en_US": "Kazakhstan",
+                    "zh_Hans": "哈萨克斯坦",
+                    "pt_BR": "Kazakhstan",
+                    "ja_JP": "Kazakhstan"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "kenya",
+                  "label": {
+                    "en_US": "Kenya",
+                    "zh_Hans": "肯尼亚",
+                    "pt_BR": "Kenya",
+                    "ja_JP": "Kenya"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "kuwait",
+                  "label": {
+                    "en_US": "Kuwait",
+                    "zh_Hans": "科威特",
+                    "pt_BR": "Kuwait",
+                    "ja_JP": "Kuwait"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "kyrgyzstan",
+                  "label": {
+                    "en_US": "Kyrgyzstan",
+                    "zh_Hans": "吉尔吉斯斯坦",
+                    "pt_BR": "Kyrgyzstan",
+                    "ja_JP": "Kyrgyzstan"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "latvia",
+                  "label": {
+                    "en_US": "Latvia",
+                    "zh_Hans": "拉脱维亚",
+                    "pt_BR": "Latvia",
+                    "ja_JP": "Latvia"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "lebanon",
+                  "label": {
+                    "en_US": "Lebanon",
+                    "zh_Hans": "黎巴嫩",
+                    "pt_BR": "Lebanon",
+                    "ja_JP": "Lebanon"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "lesotho",
+                  "label": {
+                    "en_US": "Lesotho",
+                    "zh_Hans": "莱索托",
+                    "pt_BR": "Lesotho",
+                    "ja_JP": "Lesotho"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "liberia",
+                  "label": {
+                    "en_US": "Liberia",
+                    "zh_Hans": "利比里亚",
+                    "pt_BR": "Liberia",
+                    "ja_JP": "Liberia"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "libya",
+                  "label": {
+                    "en_US": "Libya",
+                    "zh_Hans": "利比亚",
+                    "pt_BR": "Libya",
+                    "ja_JP": "Libya"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "liechtenstein",
+                  "label": {
+                    "en_US": "Liechtenstein",
+                    "zh_Hans": "列支敦士登",
+                    "pt_BR": "Liechtenstein",
+                    "ja_JP": "Liechtenstein"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "lithuania",
+                  "label": {
+                    "en_US": "Lithuania",
+                    "zh_Hans": "立陶宛",
+                    "pt_BR": "Lithuania",
+                    "ja_JP": "Lithuania"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "luxembourg",
+                  "label": {
+                    "en_US": "Luxembourg",
+                    "zh_Hans": "卢森堡",
+                    "pt_BR": "Luxembourg",
+                    "ja_JP": "Luxembourg"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "madagascar",
+                  "label": {
+                    "en_US": "Madagascar",
+                    "zh_Hans": "马达加斯加",
+                    "pt_BR": "Madagascar",
+                    "ja_JP": "Madagascar"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "malawi",
+                  "label": {
+                    "en_US": "Malawi",
+                    "zh_Hans": "马拉维",
+                    "pt_BR": "Malawi",
+                    "ja_JP": "Malawi"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "malaysia",
+                  "label": {
+                    "en_US": "Malaysia",
+                    "zh_Hans": "马来西亚",
+                    "pt_BR": "Malaysia",
+                    "ja_JP": "Malaysia"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "maldives",
+                  "label": {
+                    "en_US": "Maldives",
+                    "zh_Hans": "马尔代夫",
+                    "pt_BR": "Maldives",
+                    "ja_JP": "Maldives"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "mali",
+                  "label": {
+                    "en_US": "Mali",
+                    "zh_Hans": "马里",
+                    "pt_BR": "Mali",
+                    "ja_JP": "Mali"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "malta",
+                  "label": {
+                    "en_US": "Malta",
+                    "zh_Hans": "马耳他",
+                    "pt_BR": "Malta",
+                    "ja_JP": "Malta"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "mauritania",
+                  "label": {
+                    "en_US": "Mauritania",
+                    "zh_Hans": "毛里塔尼亚",
+                    "pt_BR": "Mauritania",
+                    "ja_JP": "Mauritania"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "mauritius",
+                  "label": {
+                    "en_US": "Mauritius",
+                    "zh_Hans": "毛里求斯",
+                    "pt_BR": "Mauritius",
+                    "ja_JP": "Mauritius"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "mexico",
+                  "label": {
+                    "en_US": "Mexico",
+                    "zh_Hans": "墨西哥",
+                    "pt_BR": "Mexico",
+                    "ja_JP": "Mexico"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "moldova",
+                  "label": {
+                    "en_US": "Moldova",
+                    "zh_Hans": "摩尔多瓦",
+                    "pt_BR": "Moldova",
+                    "ja_JP": "Moldova"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "monaco",
+                  "label": {
+                    "en_US": "Monaco",
+                    "zh_Hans": "摩纳哥",
+                    "pt_BR": "Monaco",
+                    "ja_JP": "Monaco"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "mongolia",
+                  "label": {
+                    "en_US": "Mongolia",
+                    "zh_Hans": "蒙古",
+                    "pt_BR": "Mongolia",
+                    "ja_JP": "Mongolia"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "montenegro",
+                  "label": {
+                    "en_US": "Montenegro",
+                    "zh_Hans": "黑山",
+                    "pt_BR": "Montenegro",
+                    "ja_JP": "Montenegro"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "morocco",
+                  "label": {
+                    "en_US": "Morocco",
+                    "zh_Hans": "摩洛哥",
+                    "pt_BR": "Morocco",
+                    "ja_JP": "Morocco"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "mozambique",
+                  "label": {
+                    "en_US": "Mozambique",
+                    "zh_Hans": "莫桑比克",
+                    "pt_BR": "Mozambique",
+                    "ja_JP": "Mozambique"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "myanmar",
+                  "label": {
+                    "en_US": "Myanmar",
+                    "zh_Hans": "缅甸",
+                    "pt_BR": "Myanmar",
+                    "ja_JP": "Myanmar"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "namibia",
+                  "label": {
+                    "en_US": "Namibia",
+                    "zh_Hans": "纳米比亚",
+                    "pt_BR": "Namibia",
+                    "ja_JP": "Namibia"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "nepal",
+                  "label": {
+                    "en_US": "Nepal",
+                    "zh_Hans": "尼泊尔",
+                    "pt_BR": "Nepal",
+                    "ja_JP": "Nepal"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "netherlands",
+                  "label": {
+                    "en_US": "Netherlands",
+                    "zh_Hans": "荷兰",
+                    "pt_BR": "Netherlands",
+                    "ja_JP": "Netherlands"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "new zealand",
+                  "label": {
+                    "en_US": "New Zealand",
+                    "zh_Hans": "新西兰",
+                    "pt_BR": "New Zealand",
+                    "ja_JP": "New Zealand"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "nicaragua",
+                  "label": {
+                    "en_US": "Nicaragua",
+                    "zh_Hans": "尼加拉瓜",
+                    "pt_BR": "Nicaragua",
+                    "ja_JP": "Nicaragua"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "niger",
+                  "label": {
+                    "en_US": "Niger",
+                    "zh_Hans": "尼日尔",
+                    "pt_BR": "Niger",
+                    "ja_JP": "Niger"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "nigeria",
+                  "label": {
+                    "en_US": "Nigeria",
+                    "zh_Hans": "尼日利亚",
+                    "pt_BR": "Nigeria",
+                    "ja_JP": "Nigeria"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "north korea",
+                  "label": {
+                    "en_US": "North Korea",
+                    "zh_Hans": "朝鲜",
+                    "pt_BR": "North Korea",
+                    "ja_JP": "North Korea"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "north macedonia",
+                  "label": {
+                    "en_US": "North Macedonia",
+                    "zh_Hans": "北马其顿",
+                    "pt_BR": "North Macedonia",
+                    "ja_JP": "North Macedonia"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "norway",
+                  "label": {
+                    "en_US": "Norway",
+                    "zh_Hans": "挪威",
+                    "pt_BR": "Norway",
+                    "ja_JP": "Norway"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "oman",
+                  "label": {
+                    "en_US": "Oman",
+                    "zh_Hans": "阿曼",
+                    "pt_BR": "Oman",
+                    "ja_JP": "Oman"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "pakistan",
+                  "label": {
+                    "en_US": "Pakistan",
+                    "zh_Hans": "巴基斯坦",
+                    "pt_BR": "Pakistan",
+                    "ja_JP": "Pakistan"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "panama",
+                  "label": {
+                    "en_US": "Panama",
+                    "zh_Hans": "巴拿马",
+                    "pt_BR": "Panama",
+                    "ja_JP": "Panama"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "papua new guinea",
+                  "label": {
+                    "en_US": "Papua New Guinea",
+                    "zh_Hans": "巴布亚新几内亚",
+                    "pt_BR": "Papua New Guinea",
+                    "ja_JP": "Papua New Guinea"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "paraguay",
+                  "label": {
+                    "en_US": "Paraguay",
+                    "zh_Hans": "巴拉圭",
+                    "pt_BR": "Paraguay",
+                    "ja_JP": "Paraguay"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "peru",
+                  "label": {
+                    "en_US": "Peru",
+                    "zh_Hans": "秘鲁",
+                    "pt_BR": "Peru",
+                    "ja_JP": "Peru"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "philippines",
+                  "label": {
+                    "en_US": "Philippines",
+                    "zh_Hans": "菲律宾",
+                    "pt_BR": "Philippines",
+                    "ja_JP": "Philippines"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "poland",
+                  "label": {
+                    "en_US": "Poland",
+                    "zh_Hans": "波兰",
+                    "pt_BR": "Poland",
+                    "ja_JP": "Poland"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "portugal",
+                  "label": {
+                    "en_US": "Portugal",
+                    "zh_Hans": "葡萄牙",
+                    "pt_BR": "Portugal",
+                    "ja_JP": "Portugal"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "qatar",
+                  "label": {
+                    "en_US": "Qatar",
+                    "zh_Hans": "卡塔尔",
+                    "pt_BR": "Qatar",
+                    "ja_JP": "Qatar"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "romania",
+                  "label": {
+                    "en_US": "Romania",
+                    "zh_Hans": "罗马尼亚",
+                    "pt_BR": "Romania",
+                    "ja_JP": "Romania"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "russia",
+                  "label": {
+                    "en_US": "Russia",
+                    "zh_Hans": "俄罗斯",
+                    "pt_BR": "Russia",
+                    "ja_JP": "Russia"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "rwanda",
+                  "label": {
+                    "en_US": "Rwanda",
+                    "zh_Hans": "卢旺达",
+                    "pt_BR": "Rwanda",
+                    "ja_JP": "Rwanda"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "saudi arabia",
+                  "label": {
+                    "en_US": "Saudi Arabia",
+                    "zh_Hans": "沙特阿拉伯",
+                    "pt_BR": "Saudi Arabia",
+                    "ja_JP": "Saudi Arabia"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "senegal",
+                  "label": {
+                    "en_US": "Senegal",
+                    "zh_Hans": "塞内加尔",
+                    "pt_BR": "Senegal",
+                    "ja_JP": "Senegal"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "serbia",
+                  "label": {
+                    "en_US": "Serbia",
+                    "zh_Hans": "塞尔维亚",
+                    "pt_BR": "Serbia",
+                    "ja_JP": "Serbia"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "singapore",
+                  "label": {
+                    "en_US": "Singapore",
+                    "zh_Hans": "新加坡",
+                    "pt_BR": "Singapore",
+                    "ja_JP": "Singapore"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "slovakia",
+                  "label": {
+                    "en_US": "Slovakia",
+                    "zh_Hans": "斯洛伐克",
+                    "pt_BR": "Slovakia",
+                    "ja_JP": "Slovakia"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "slovenia",
+                  "label": {
+                    "en_US": "Slovenia",
+                    "zh_Hans": "斯洛文尼亚",
+                    "pt_BR": "Slovenia",
+                    "ja_JP": "Slovenia"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "somalia",
+                  "label": {
+                    "en_US": "Somalia",
+                    "zh_Hans": "索马里",
+                    "pt_BR": "Somalia",
+                    "ja_JP": "Somalia"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "south africa",
+                  "label": {
+                    "en_US": "South Africa",
+                    "zh_Hans": "南非",
+                    "pt_BR": "South Africa",
+                    "ja_JP": "South Africa"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "south korea",
+                  "label": {
+                    "en_US": "South Korea",
+                    "zh_Hans": "韩国",
+                    "pt_BR": "South Korea",
+                    "ja_JP": "South Korea"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "south sudan",
+                  "label": {
+                    "en_US": "South Sudan",
+                    "zh_Hans": "南苏丹",
+                    "pt_BR": "South Sudan",
+                    "ja_JP": "South Sudan"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "spain",
+                  "label": {
+                    "en_US": "Spain",
+                    "zh_Hans": "西班牙",
+                    "pt_BR": "Spain",
+                    "ja_JP": "Spain"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "sri lanka",
+                  "label": {
+                    "en_US": "Sri Lanka",
+                    "zh_Hans": "斯里兰卡",
+                    "pt_BR": "Sri Lanka",
+                    "ja_JP": "Sri Lanka"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "sudan",
+                  "label": {
+                    "en_US": "Sudan",
+                    "zh_Hans": "苏丹",
+                    "pt_BR": "Sudan",
+                    "ja_JP": "Sudan"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "sweden",
+                  "label": {
+                    "en_US": "Sweden",
+                    "zh_Hans": "瑞典",
+                    "pt_BR": "Sweden",
+                    "ja_JP": "Sweden"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "switzerland",
+                  "label": {
+                    "en_US": "Switzerland",
+                    "zh_Hans": "瑞士",
+                    "pt_BR": "Switzerland",
+                    "ja_JP": "Switzerland"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "syria",
+                  "label": {
+                    "en_US": "Syria",
+                    "zh_Hans": "叙利亚",
+                    "pt_BR": "Syria",
+                    "ja_JP": "Syria"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "taiwan",
+                  "label": {
+                    "en_US": "Taiwan",
+                    "zh_Hans": "台湾",
+                    "pt_BR": "Taiwan",
+                    "ja_JP": "Taiwan"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "tajikistan",
+                  "label": {
+                    "en_US": "Tajikistan",
+                    "zh_Hans": "塔吉克斯坦",
+                    "pt_BR": "Tajikistan",
+                    "ja_JP": "Tajikistan"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "tanzania",
+                  "label": {
+                    "en_US": "Tanzania",
+                    "zh_Hans": "坦桑尼亚",
+                    "pt_BR": "Tanzania",
+                    "ja_JP": "Tanzania"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "thailand",
+                  "label": {
+                    "en_US": "Thailand",
+                    "zh_Hans": "泰国",
+                    "pt_BR": "Thailand",
+                    "ja_JP": "Thailand"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "togo",
+                  "label": {
+                    "en_US": "Togo",
+                    "zh_Hans": "多哥",
+                    "pt_BR": "Togo",
+                    "ja_JP": "Togo"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "trinidad and tobago",
+                  "label": {
+                    "en_US": "Trinidad and Tobago",
+                    "zh_Hans": "特立尼达和多巴哥",
+                    "pt_BR": "Trinidad and Tobago",
+                    "ja_JP": "Trinidad and Tobago"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "tunisia",
+                  "label": {
+                    "en_US": "Tunisia",
+                    "zh_Hans": "突尼斯",
+                    "pt_BR": "Tunisia",
+                    "ja_JP": "Tunisia"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "turkey",
+                  "label": {
+                    "en_US": "Turkey",
+                    "zh_Hans": "土耳其",
+                    "pt_BR": "Turkey",
+                    "ja_JP": "Turkey"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "turkmenistan",
+                  "label": {
+                    "en_US": "Turkmenistan",
+                    "zh_Hans": "土库曼斯坦",
+                    "pt_BR": "Turkmenistan",
+                    "ja_JP": "Turkmenistan"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "uganda",
+                  "label": {
+                    "en_US": "Uganda",
+                    "zh_Hans": "乌干达",
+                    "pt_BR": "Uganda",
+                    "ja_JP": "Uganda"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "ukraine",
+                  "label": {
+                    "en_US": "Ukraine",
+                    "zh_Hans": "乌克兰",
+                    "pt_BR": "Ukraine",
+                    "ja_JP": "Ukraine"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "united arab emirates",
+                  "label": {
+                    "en_US": "United Arab Emirates",
+                    "zh_Hans": "阿拉伯联合酋长国",
+                    "pt_BR": "United Arab Emirates",
+                    "ja_JP": "United Arab Emirates"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "united kingdom",
+                  "label": {
+                    "en_US": "United Kingdom",
+                    "zh_Hans": "英国",
+                    "pt_BR": "United Kingdom",
+                    "ja_JP": "United Kingdom"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "united states",
+                  "label": {
+                    "en_US": "United States",
+                    "zh_Hans": "美国",
+                    "pt_BR": "United States",
+                    "ja_JP": "United States"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "uruguay",
+                  "label": {
+                    "en_US": "Uruguay",
+                    "zh_Hans": "乌拉圭",
+                    "pt_BR": "Uruguay",
+                    "ja_JP": "Uruguay"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "uzbekistan",
+                  "label": {
+                    "en_US": "Uzbekistan",
+                    "zh_Hans": "乌兹别克斯坦",
+                    "pt_BR": "Uzbekistan",
+                    "ja_JP": "Uzbekistan"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "venezuela",
+                  "label": {
+                    "en_US": "Venezuela",
+                    "zh_Hans": "委内瑞拉",
+                    "pt_BR": "Venezuela",
+                    "ja_JP": "Venezuela"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "vietnam",
+                  "label": {
+                    "en_US": "Vietnam",
+                    "zh_Hans": "越南",
+                    "pt_BR": "Vietnam",
+                    "ja_JP": "Vietnam"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "yemen",
+                  "label": {
+                    "en_US": "Yemen",
+                    "zh_Hans": "也门",
+                    "pt_BR": "Yemen",
+                    "ja_JP": "Yemen"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "zambia",
+                  "label": {
+                    "en_US": "Zambia",
+                    "zh_Hans": "赞比亚",
+                    "pt_BR": "Zambia",
+                    "ja_JP": "Zambia"
+                  },
+                  "icon": ""
+                },
+                {
+                  "value": "zimbabwe",
+                  "label": {
+                    "en_US": "Zimbabwe",
+                    "zh_Hans": "津巴布韦",
+                    "pt_BR": "Zimbabwe",
+                    "ja_JP": "Zimbabwe"
+                  },
+                  "icon": ""
+                }
+              ],
+              "type": "select",
+              "human_description": {
+                "en_US": "Boost search results from a specific country (topic must be general).",
+                "zh_Hans": "从特定国家/地区提升搜索结果（主题必须是general）。",
+                "pt_BR": "Boost search results from a specific country (topic must be general).",
+                "ja_JP": "Boost search results from a specific country (topic must be general)."
+              },
+              "form": "llm",
+              "llm_description": "Select a country to boost its content in results (only when topic is general)."
+            },
+            {
+              "name": "include_domains",
+              "label": {
+                "en_US": "Include Domains",
+                "zh_Hans": "包含域",
+                "pt_BR": "Include Domains",
+                "ja_JP": "Include Domains"
+              },
+              "placeholder": null,
+              "scope": null,
+              "auto_generate": null,
+              "template": null,
+              "required": false,
+              "default": null,
+              "min": null,
+              "max": null,
+              "precision": null,
+              "options": [],
+              "type": "string",
+              "human_description": {
+                "en_US": "A comma-separated list of domains to specifically include in the search results.",
+                "zh_Hans": "要在搜索结果中特别包含的域的逗号分隔列表。",
+                "pt_BR": "A comma-separated list of domains to specifically include in the search results.",
+                "ja_JP": "A comma-separated list of domains to specifically include in the search results."
+              },
+              "form": "llm",
+              "llm_description": "A comma-separated list of domains to specifically include in the search results."
+            },
+            {
+              "name": "exclude_domains",
+              "label": {
+                "en_US": "Exclude Domains",
+                "zh_Hans": "排除域",
+                "pt_BR": "Exclude Domains",
+                "ja_JP": "Exclude Domains"
+              },
+              "placeholder": null,
+              "scope": null,
+              "auto_generate": null,
+              "template": null,
+              "required": false,
+              "default": null,
+              "min": null,
+              "max": null,
+              "precision": null,
+              "options": [],
+              "type": "string",
+              "human_description": {
+                "en_US": "A comma-separated list of domains to specifically exclude from the search results.",
+                "zh_Hans": "要从搜索结果中特别排除的域的逗号分隔列表。",
+                "pt_BR": "A comma-separated list of domains to specifically exclude from the search results.",
+                "ja_JP": "A comma-separated list of domains to specifically exclude from the search results."
+              },
+              "form": "llm",
+              "llm_description": "A comma-separated list of domains to specifically exclude from the search results."
+            },
+            {
+              "name": "project_id",
+              "label": {
+                "en_US": "Project ID",
+                "zh_Hans": "项目 ID",
+                "pt_BR": "Project ID",
+                "ja_JP": "Project ID"
+              },
+              "placeholder": null,
+              "scope": null,
+              "auto_generate": null,
+              "template": null,
+              "required": false,
+              "default": null,
+              "min": null,
+              "max": null,
+              "precision": null,
+              "options": [],
+              "type": "string",
+              "human_description": {
+                "en_US": "Optional project ID for tracking and analytics purposes. Will be sent as X-Project-ID header.",
+                "zh_Hans": "用于跟踪和分析目的的可选项目 ID。将作为 X-Project-ID 标头发送。",
+                "pt_BR": "Optional project ID for tracking and analytics purposes. Will be sent as X-Project-ID header.",
+                "ja_JP": "Optional project ID for tracking and analytics purposes. Will be sent as X-Project-ID header."
+              },
+              "form": "form",
+              "llm_description": "Optional project ID for usage tracking and analytics."
+            }
+          ],
+          "params": {
+            "query": "",
+            "search_depth": "",
+            "topic": "",
+            "time_range": "",
+            "start_date": "",
+            "end_date": "",
+            "auto_parameters": "",
+            "include_images": "",
+            "include_image_descriptions": "",
+            "include_favicon": "",
+            "include_answer": "",
+            "include_raw_content": "",
+            "include_usage": "",
+            "max_results": "",
+            "chunks_per_source": "",
+            "country": "",
+            "include_domains": "",
+            "exclude_domains": "",
+            "project_id": ""
+          },
+          "selected": false
+        },
+        "position": {
+          "x": 794.3686399999999,
+          "y": 280.42176
+        },
+        "targetPosition": "left",
+        "sourcePosition": "right",
+        "positionAbsolute": {
+          "x": 794.3686399999999,
+          "y": 280.42176
+        },
+        "width": 242,
+        "height": 322,
+        "selected": false
+      },
+      {
+        "id": "1779370835292",
+        "type": "custom",
+        "data": {
+          "model": {
+            "provider": "langgenius/ollama/ollama",
+            "name": "llama3.1:8b",
+            "mode": "chat",
+            "completion_params": {
+              "temperature": 0.7
+            }
+          },
+          "prompt_template": [
+            {
+              "role": "system",
+              "text": "你是一個精通大數據與金融市場的頂級量化分析官，並且具備高度的「前車之鑑」反省思維。\n接下來我會給你今天從網路上抓到的即時財經新聞，以及「你過去累積的所有自我修正檢討報告」。\n\n請你執行以下任務：\n1. 仔細研讀歷史檢討報告，找出你過去預測常犯的錯誤（例如過度樂觀、忽略某些指標、盲目看多看空等）。\n2. 在結合今天的新聞做出新預測時，務必吸取這些教訓，有意識地避開過去的盲點。\n3. 嚴格以「繁體中文」輸出以下格式的「明日市場預測報告」：\n   - 【今日核心消息】：兩句話摘要最重要的市場大事件。\n   - 【量化走勢預測】：結合歷史教訓後，預測明日比特幣的可能波動方向與合理區間。\n   - 【潛在風險提示】：列出明天交易最需要注意的風控盲點。",
+              "id": "168f9dc9-62d5-4e01-ad2d-eefac623213d"
+            },
+            {
+              "role": "user",
+              "text": "=========================================\n【你過去累積的所有歷史檢討報告（你的經驗庫）】：\n{{code_1.history_rag_reviews}}\n=========================================\n\n=========================================\n【Tavily 橫掃到的全球總經與籌碼故事】：\n{{tavily_search.result}}\n\n【Python 即時監控抓到的硬核數據指標】：\n{{code_metrics.live_metrics}}\n=========================================\n\n請吸取歷史檢討中的教訓，避開過去的盲點，結合今日新聞，產出繁體中文的明日預測報告：",
+              "id": "139f4685-3f85-47db-a8a8-4bcc3da91da8"
+            }
+          ],
+          "context": {
+            "enabled": true,
+            "variable_selector": [
+              "1779379015566",
+              "text"
+            ]
+          },
+          "vision": {
+            "enabled": false
+          },
+          "type": "llm",
+          "title": "預測腦",
+          "selected": false
+        },
+        "position": {
+          "x": 1097.12864,
+          "y": 524.5500799999999
+        },
+        "targetPosition": "left",
+        "sourcePosition": "right",
+        "positionAbsolute": {
+          "x": 1097.12864,
+          "y": 524.5500799999999
+        },
+        "width": 242,
+        "height": 88,
+        "selected": false
+      },
+      {
+        "id": "1779371055628",
+        "type": "custom",
+        "data": {
+          "outputs": [
+            {
+              "variable": "status",
+              "value_selector": [
+                "1779373603495",
+                "status"
+              ],
+              "value_type": "string"
+            },
+            {
+              "variable": "final_output",
+              "value_selector": [
+                "1779373603495",
+                "final_output"
+              ],
+              "value_type": "string"
+            }
+          ],
+          "type": "end",
+          "title": "輸出",
+          "selected": false
+        },
+        "position": {
+          "x": 1537.2160000000001,
+          "y": 524.5500799999999
+        },
+        "targetPosition": "left",
+        "sourcePosition": "right",
+        "positionAbsolute": {
+          "x": 1537.2160000000001,
+          "y": 524.5500799999999
+        },
+        "width": 242,
+        "height": 115,
+        "selected": false
+      },
+      {
+        "id": "1779372095125",
+        "type": "custom",
+        "data": {
+          "code": "import datetime\nimport os\n\ndef main() -> dict:\n    # 這是對接 docker-compose.yaml 卷軸掛載進來的 Linux 容器內部路徑\n    folder_path = \"/mnt/d/AI_data\"\n    \n    # 計算出今天與昨天的日期字串\n    today_str = datetime.datetime.now().strftime(\"%Y-%m-%d\")\n    yesterday_str = (datetime.datetime.now() - datetime.timedelta(days=1)).strftime(\"%Y-%m-%d\")\n    \n    # -----------------------------------------------------------------\n    # 【時空對齊修正】：因為昨天存檔時日期已經 +1，所以今天看昨天的預測，\n    # 檔案名稱剛好會等於「今天的日期字串 (today_str)」！\n    # -----------------------------------------------------------------\n    yesterday_forecast_file = f\"{folder_path}/forecast_{today_str}.txt\"\n    \n    # 嘗試讀取昨天為今天寫下的預測報告\n    try:\n        with open(yesterday_forecast_file, \"r\", encoding=\"utf-8\") as f:\n            yesterday_forecast = f.read()\n    except (FileNotFoundError, IOError):\n        yesterday_forecast = f\"【系統定錨提示】：未在 D 槽找到名為 forecast_{today_str}.txt 的昨日預測報告。可能昨日未運行系統，或為首次初始化運行。\"\n\n    # ===================================================\n    # 2. 【5日動態經驗過濾】：永遠只讀過去 5 天的檢討檔，拒絕臃腫！\n    # ===================================================\n    all_past_reviews = []\n    today_dt = datetime.datetime.now()\n    # 檢討檔（review）是當天記錄當天的事，所以包含昨天在內，往前推 5 天的檢討檔日期\n    allowed_dates = [(today_dt - datetime.timedelta(days=i)).strftime(\"%Y-%m-%d\") for i in range(1, 6)]\n    \n    try:\n        if os.path.exists(folder_path):\n            for filename in os.listdir(folder_path):\n                if filename.startswith(\"review_\") and filename.endswith(\".txt\"):\n                    # 提取日期部分\n                    date_part = filename.replace(\"review_\", \"\").replace(\".txt\", \"\")\n                    \n                    # 只有落入 5 天窗口內的心得，才載入大腦記憶體\n                    if date_part in allowed_dates:\n                        file_full_path = f\"{folder_path}/{filename}\"\n                        try:\n                            with open(file_full_path, \"r\", encoding=\"utf-8\") as f:\n                                all_past_reviews.append(f\"【{date_part} 的黃金歷史修正筆記】:\\n{f.read()}\\n\")\n                        except:\n                            pass\n    except Exception as e:\n        pass\n                \n    if all_past_reviews:\n        history_book_text = \"\\n\".join(all_past_reviews)\n    else:\n        history_book_text = \"【系統歷史初始化提示】：目前為運行初始階段，D 槽實體硬碟內尚無累積的歷史檢討筆記。\"\n\n    yesterday_real_price = \"請參考下方今日最新聯網抓取到的即時價格進行對比。\"\n\n    return {\n        \"yesterday_date\": yesterday_str,           # 傳給下游檢討大腦，告知這是哪一天的市場行情\n        \"yesterday_forecast_text\": yesterday_forecast, # 傳給下游檢討大腦，這就是昨天精準吐出的預測本文！\n        \"yesterday_real_market\": yesterday_real_price,\n        \"history_rag_reviews\": history_book_text\n    }",
+          "code_language": "python3",
+          "variables": [],
+          "outputs": {
+            "yesterday_date": {
+              "type": "string",
+              "children": null
+            },
+            "yesterday_forecast_text": {
+              "type": "string",
+              "children": null
+            },
+            "yesterday_real_market": {
+              "type": "string",
+              "children": null
+            },
+            "history_rag_reviews": {
+              "type": "string",
+              "children": null
+            }
+          },
+          "type": "code",
+          "title": "程式碼執行",
+          "selected": true
+        },
+        "position": {
+          "x": 93,
+          "y": 589
+        },
+        "targetPosition": "left",
+        "sourcePosition": "right",
+        "positionAbsolute": {
+          "x": 93,
+          "y": 589
+        },
+        "width": 242,
+        "height": 52,
+        "selected": true
+      },
+      {
+        "id": "1779372307384",
+        "type": "custom",
+        "data": {
+          "model": {
+            "provider": "langgenius/ollama/ollama",
+            "name": "llama3.1:8b",
+            "mode": "chat",
+            "completion_params": {
+              "temperature": 0.7
+            }
+          },
+          "prompt_template": [
+            {
+              "role": "system",
+              "text": "你是一個冷勝、犀利且具備極強自我進化能力的金融量化風控官。\n接下來我會給你「昨天的真實市場價格」、「昨天的預測內容」，以及「你過去累積的所有歷史檢討筆記」。\n\n請你執行以下任務：\n1. 對比昨天的預測與真實行情，找出昨天的預測盲點與失誤。\n2. 仔細研讀歷史檢討筆記，檢查自己是不是「重蹈覆轍」犯了跟過去一樣的邏輯錯誤？\n3. 嚴格以「繁體中文」寫下一篇 300 字以內的「今日自我修正檢討報告」。如果重複犯錯，請在報告中嚴厲指正自己，並給出具體的策略優化建議。",
+              "id": "4d72b1f6-06c0-4fb6-8c24-79a9ccc54671"
+            },
+            {
+              "role": "user",
+              "text": "【昨天的日期】：{{code_1.yesterday_date}}\n【昨天的真實市場價格】：{{code_1.yesterday_real_market}}\n\n=========================================\n【昨天的預測報告內容】：\n{{code_1.yesterday_forecast_text}}\n\n=========================================\n【你過去累積的所有歷史檢討筆記（歷史課本）】：\n{{code_1.history_rag_reviews}}\n=========================================\n\n請開始進行深度比對、反省，並輸出繁體中文檢討報告：",
+              "id": "1593e801-3519-4198-984a-2876d240b509"
+            }
+          ],
+          "context": {
+            "enabled": false,
+            "variable_selector": []
+          },
+          "vision": {
+            "enabled": false
+          },
+          "type": "llm",
+          "title": "檢討腦",
+          "selected": false
+        },
+        "position": {
+          "x": 447.98112000000015,
+          "y": 285.58176
+        },
+        "targetPosition": "left",
+        "sourcePosition": "right",
+        "positionAbsolute": {
+          "x": 447.98112000000015,
+          "y": 285.58176
+        },
+        "width": 242,
+        "height": 88,
+        "selected": false
+      },
+      {
+        "id": "1779372524338",
+        "type": "custom",
+        "data": {
+          "code": "import datetime\nimport os\n\ndef main(review_text: str) -> dict:\n    folder_path = \"/mnt/d/AI_data\"\n    today_str = datetime.datetime.now().strftime(\"%Y-%m-%d\")\n    file_path = f\"{folder_path}/review_{today_str}.txt\"\n    \n    cleaned_text = review_text.strip()\n    \n    try:\n        # 強迫 Linux 內核：如果發現沒目錄（雖然應該已經有了），就在掛載點上強行建起來\n        if not os.path.exists(folder_path):\n            os.makedirs(folder_path, exist_ok=True)\n            \n        # 執行實體硬碟寫入\n        with open(file_path, \"w\", encoding=\"utf-8\") as f:\n            f.write(cleaned_text)\n        status_msg = f\"【硬碟直連成功】今日檢討報告已實打實寫入 Windows D 槽：{file_path}\"\n    except Exception as e:\n        status_msg = f\"檢討檔物理寫入失敗，原因: {str(e)}。請檢查 YAML 掛載路徑。\"\n        \n    return {\n        \"status\": status_msg,\n        \"review_memory\": cleaned_text\n    }",
+          "code_language": "python3",
+          "variables": [
+            {
+              "variable": "review_text",
+              "value_selector": [
+                "1779372307384",
+                "text"
+              ],
+              "value_type": "string"
+            }
+          ],
+          "outputs": {
+            "status": {
+              "type": "string",
+              "children": null
+            },
+            "review_memory": {
+              "type": "string",
+              "children": null
+            }
+          },
+          "type": "code",
+          "title": "存檢討報告",
+          "selected": false
+        },
+        "position": {
+          "x": 447.98112000000015,
+          "y": 589
+        },
+        "targetPosition": "left",
+        "sourcePosition": "right",
+        "positionAbsolute": {
+          "x": 447.98112000000015,
+          "y": 589
+        },
+        "width": 242,
+        "height": 52,
+        "selected": false
+      },
+      {
+        "id": "1779373603495",
+        "type": "custom",
+        "data": {
+          "code": "import datetime\nimport os\nimport shutil\n\ndef main(forecast_text: str) -> dict:\n    # ---------------------------------------------------------\n    # 【資工時空修正】：將儲存日期 + 1 天，精準對齊這份報告所預測的未來！\n    # ---------------------------------------------------------\n    tomorrow_date = datetime.datetime.now() + datetime.timedelta(days=1)\n    tomorrow_str = tomorrow_date.strftime(\"%Y-%m-%d\")\n    \n    # 先寫到 /tmp（Linux 記憶體暫存，100% 有讀寫權限）\n    tmp_path = f\"/tmp/forecast_{tomorrow_str}.txt\"\n    \n    # 透過 docker-compose 物理卷軸，直灌你 Windows 實體的 D:\\AI_data 資料夾\n    target_path = f\"/mnt/d/AI_data/forecast_{tomorrow_str}.txt\"\n    \n    try:\n        # 第一步：寫入 /tmp 緩衝區\n        with open(tmp_path, \"w\", encoding=\"utf-8\") as f:\n            f.write(forecast_text.strip())\n        \n        # 確保目標 D 槽目錄存在，若不存在則在掛載點自動擴建\n        target_dir = os.path.dirname(target_path)\n        if not os.path.exists(target_dir):\n            os.makedirs(target_dir, exist_ok=True)\n        \n        # 第二步：安全複製到 Windows D 槽，完全避開 I/O 競態衝突\n        shutil.copy2(tmp_path, target_path)\n        status_msg = f\"🎉【明日預測時空對齊成功】已實打實注入 D 槽：{target_path}\"\n        \n    except Exception as e:\n        status_msg = f\"物理寫入失敗，原因: {str(e)}\"\n        \n    return {\n        \"status\": status_msg, \n        \"final_output\": forecast_text.strip()\n    }",
+          "code_language": "python3",
+          "variables": [
+            {
+              "variable": "forecast_text",
+              "value_selector": [
+                "1779370835292",
+                "text"
+              ],
+              "value_type": "string"
+            }
+          ],
+          "outputs": {
+            "status": {
+              "type": "string",
+              "children": null
+            },
+            "final_output": {
+              "type": "string",
+              "children": null
+            }
+          },
+          "type": "code",
+          "title": "存預測報告",
+          "selected": false
+        },
+        "position": {
+          "x": 1486.55104,
+          "y": 246.7137806051453
+        },
+        "targetPosition": "left",
+        "sourcePosition": "right",
+        "positionAbsolute": {
+          "x": 1486.55104,
+          "y": 246.7137806051453
+        },
+        "width": 242,
+        "height": 52,
+        "selected": false
+      },
+      {
+        "id": "1779379767777",
+        "type": "custom",
+        "data": {
+          "code": "import urllib.request\nimport json\n\ndef main() -> dict:\n    # 預設安全文字\n    fg_msg = \"恐懼貪婪指數：暫時無法取得。\"\n    \n    try:\n        # 1. 抓取加密市場最權威的恐懼貪婪指數 (完全免費免金鑰)\n        url = \"https://api.alternative.me/fng/\"\n        req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})\n        with urllib.request.urlopen(req, timeout=5) as response:\n            data = json.loads(response.read().decode())\n            value = data['data'][0]['value']\n            classification = data['data'][0]['value_classification']\n            fg_msg = f\"當前市場恐懼貪婪指數為：{value} ({classification})\"\n    except:\n        pass\n        \n    return {\n        \"live_metrics\": fg_msg\n    }",
+          "code_language": "python3",
+          "variables": [],
+          "outputs": {
+            "live_metrics": {
+              "type": "string",
+              "children": null
+            }
+          },
+          "type": "code",
+          "title": "找數據",
+          "selected": false
+        },
+        "position": {
+          "x": 1083.5686399999995,
+          "y": 262.71008
+        },
+        "targetPosition": "left",
+        "sourcePosition": "right",
+        "positionAbsolute": {
+          "x": 1083.5686399999995,
+          "y": 262.71008
+        },
+        "width": 242,
+        "height": 52,
+        "selected": false
+      }
+    ],
+    "edges": [
+      {
+        "id": "1779372095125-source-1779372307384-target",
+        "type": "custom",
+        "source": "1779372095125",
+        "sourceHandle": "source",
+        "target": "1779372307384",
+        "targetHandle": "target",
+        "data": {
+          "sourceType": "code",
+          "targetType": "llm",
+          "isInIteration": false,
+          "isInLoop": false
+        },
+        "zIndex": 0,
+        "selected": false
+      },
+      {
+        "id": "1779372307384-source-1779372524338-target",
+        "type": "custom",
+        "source": "1779372307384",
+        "sourceHandle": "source",
+        "target": "1779372524338",
+        "targetHandle": "target",
+        "data": {
+          "sourceType": "llm",
+          "targetType": "code",
+          "isInIteration": false,
+          "isInLoop": false
+        },
+        "zIndex": 0,
+        "selected": false
+      },
+      {
+        "id": "1779370835292-source-1779373603495-target",
+        "type": "custom",
+        "source": "1779370835292",
+        "sourceHandle": "source",
+        "target": "1779373603495",
+        "targetHandle": "target",
+        "data": {
+          "sourceType": "llm",
+          "targetType": "code",
+          "isInIteration": false,
+          "isInLoop": false
+        },
+        "zIndex": 0,
+        "selected": false
+      },
+      {
+        "id": "1779373603495-source-1779371055628-target",
+        "type": "custom",
+        "source": "1779373603495",
+        "target": "1779371055628",
+        "sourceHandle": "source",
+        "targetHandle": "target",
+        "data": {
+          "sourceType": "code",
+          "targetType": "end",
+          "isInLoop": false
+        },
+        "zIndex": 0,
+        "selected": false
+      },
+      {
+        "id": "1779365650959-source-1779372095125-target",
+        "type": "custom",
+        "source": "1779365650959",
+        "target": "1779372095125",
+        "sourceHandle": "source",
+        "targetHandle": "target",
+        "data": {
+          "sourceType": "trigger-schedule",
+          "targetType": "code",
+          "isInLoop": false
+        },
+        "zIndex": 0,
+        "selected": false
+      },
+      {
+        "id": "1779372524338-source-1779379015566-target",
+        "type": "custom",
+        "source": "1779372524338",
+        "target": "1779379015566",
+        "sourceHandle": "source",
+        "targetHandle": "target",
+        "data": {
+          "sourceType": "code",
+          "targetType": "tool",
+          "isInLoop": false,
+          "isInIteration": false
+        },
+        "zIndex": 0,
+        "selected": false
+      },
+      {
+        "id": "1779379015566-source-1779379767777-target",
+        "type": "custom",
+        "source": "1779379015566",
+        "sourceHandle": "source",
+        "target": "1779379767777",
+        "targetHandle": "target",
+        "data": {
+          "sourceType": "tool",
+          "targetType": "code",
+          "isInIteration": false,
+          "isInLoop": false
+        },
+        "zIndex": 0,
+        "selected": false
+      },
+      {
+        "id": "1779379767777-source-1779370835292-target",
+        "type": "custom",
+        "source": "1779379767777",
+        "target": "1779370835292",
+        "sourceHandle": "source",
+        "targetHandle": "target",
+        "data": {
+          "sourceType": "code",
+          "targetType": "llm",
+          "isInLoop": false
+        },
+        "zIndex": 0
+      }
+    ],
+    "viewport": {
+      "x": 47.31137240798274,
+      "y": 298.36574199854095,
+      "zoom": 1
+    }
+  },
+  "features": {
+    "opening_statement": "",
+    "suggested_questions": [],
+    "suggested_questions_after_answer": {
+      "enabled": false
+    },
+    "text_to_speech": {
+      "enabled": false,
+      "voice": "",
+      "language": ""
+    },
+    "speech_to_text": {
+      "enabled": false
+    },
+    "retriever_resource": {
+      "enabled": true
+    },
+    "sensitive_word_avoidance": {
+      "enabled": false
+    },
+    "file_upload": {
+      "image": {
+        "enabled": false,
+        "number_limits": 3,
+        "transfer_methods": [
+          "local_file",
+          "remote_url"
+        ]
+      },
+      "enabled": false,
+      "allowed_file_types": [
+        "image"
+      ],
+      "allowed_file_extensions": [
+        ".JPG",
+        ".JPEG",
+        ".PNG",
+        ".GIF",
+        ".WEBP",
+        ".SVG"
+      ],
+      "allowed_file_upload_methods": [
+        "local_file",
+        "remote_url"
+      ],
+      "number_limits": 3,
+      "fileUploadConfig": {
+        "file_size_limit": 15,
+        "batch_count_limit": 5,
+        "file_upload_limit": 20,
+        "image_file_size_limit": 10,
+        "video_file_size_limit": 100,
+        "audio_file_size_limit": 50,
+        "workflow_file_upload_limit": 10,
+        "image_file_batch_limit": 10,
+        "single_chunk_attachment_limit": 10,
+        "attachment_image_file_size_limit": 2
+      }
+    }
+  },
+  "environment_variables": {},
+  "conversation_variables": {},
+  "updated_at": "2026-06-04T10:18:50.133838"
+}
